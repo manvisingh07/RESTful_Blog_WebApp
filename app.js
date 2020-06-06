@@ -5,6 +5,8 @@ methodoverride  =require("method-override"),
 expresssanitizer=require("express-sanitizer"),
       app       =express();
 
+const PORT= process.env.PORT || 3000
+
 //app config
 mongoose.connect("mongodb://localhost/blog_app");
 app.set("view engine","ejs");
@@ -107,6 +109,6 @@ blog.findByIdAndDelete(req.params.id,function(err){
 })
 
 
-app.listen(3000,function(){
+app.listen(PORT,function(){
     console.log("SERVER HAS STARTED!!")
 })
